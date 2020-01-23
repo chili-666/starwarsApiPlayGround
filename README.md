@@ -1,0 +1,3 @@
+# starwarsApiPlayGround
+
+Just started out on learning ReactJS - this is trying to put together everything I learned so far and get some data from SWAPI to show...
