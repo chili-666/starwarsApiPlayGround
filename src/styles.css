@@ -1,0 +1,57 @@
+body {
+  background-color: black;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  justify-items: flex-start;
+}
+
+.background {
+  background-image: url("spaceship.png");
+}
+
+.character {
+  background-color: black;
+  color: whitesmoke;
+  padding: 1em;
+  border-radius: 25px;
+  border: 5px solid yellow;
+  width: 35vw;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 1em;
+  box-shadow: 0px 0px 5px yellow;
+}
+
+.character ul {
+  list-style-type: none;
+  font-size: smaller;
+  text-decoration: none;
+  color: yellow;
+}
+
+.movie-container {
+}
+
+.movie {
+  background-color: black;
+  color: yellow;
+  border: 0px;
+  box-shadow: none;
+  cursor: pointer;
+  font-size: small;
+  margin-bottom: 0px;
+}
+
+.crawl {
+  font-size: x-small;
+  text-align: justify;
+  color: #d3d3d3;
+}

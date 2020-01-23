@@ -1,2 +1,0 @@
-# starwarsApiPlayGround
-Created with CodeSandbox
