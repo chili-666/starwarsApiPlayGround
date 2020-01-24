@@ -1,10 +1,39 @@
 body {
   background-color: black;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
   font-family: sans-serif;
   text-align: center;
+}
+
+.header {
+  position: sticky;
+  width: 100%;
+  color: yellow;
+  background-color: black;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 0px 10px yellow;
+  margin-bottom: 1rem;
+
+  z-index: 1;
+}
+
+.header i {
+  width: 25%;
+}
+
+.icon {
+  font-size: 50px;
+  vertical-align: bottom;
 }
 
 .container {
@@ -15,19 +44,49 @@ body {
 }
 
 .background {
+  background-color: black;
+  background-image: radial-gradient(
+      white,
+      rgba(255, 255, 255, 0.2) 4px,
+      transparent 40px
+    ),
+    radial-gradient(white, rgba(255, 255, 255, 0.15) 3px, transparent 30px),
+    radial-gradient(white, rgba(255, 255, 255, 0.1) 2px, transparent 40px),
+    radial-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 30px
+    );
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  background-attachment: fixed;
+}
+
+.spaceship {
   background-image: url("spaceship.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-attachment: fixed;
+  background-size: contain;
+}
+
+.tieFighter {
+  background-image: url("tiefighter.png");
+  background-repeat: no-repeat;
+  background-size: 25% auto;
+  background-position: 60% 60%;
+  perspective: 1px;
 }
 
 .character {
-  background-color: black;
+  background-color: RGBA(0, 0, 0, 0.7);
   color: whitesmoke;
   padding: 1em;
   border-radius: 25px;
   border: 5px solid yellow;
-  width: 35vw;
-  font-family: "Roboto", sans-serif;
-  margin-bottom: 1em;
-  box-shadow: 0px 0px 5px yellow;
+  width: 25vw;
+  margin: 1em;
+  box-shadow: 0px 0px 15px yellow;
 }
 
 .character ul {
@@ -41,7 +100,6 @@ body {
 }
 
 .movie {
-  background-color: black;
   color: yellow;
   border: 0px;
   box-shadow: none;

@@ -8,24 +8,60 @@ class App extends Component {
     super();
     this.state = {
       loading: true,
-      character: {}
+      character: [],
+      next: ""
     };
   }
 
   componentDidMount() {
+    /* var fetchNow = function(url) {
+      if (url != null) {
+        return fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            this.setState({
+              character: data.results,
+              next: data.next,
+              loading: false})
+            console.log("NExt", data.next);
+            fetchNow(data.next);
+          });
+      }
+    };*/
     this.setState({ loading: true });
-    fetch("https://swapi.co/api/people")
+    fetch("https://swapi.co/api/people/")
       .then(response => response.json())
       .then(data => {
+        console.log(data.next);
         this.setState({
           character: data.results,
-          loading: false
+          next: data.next,
+          loading: true
         });
+        //fetchNow("https://swapi.co/api/people/");
       });
   }
 
+  componentDidUpdate() {
+    this.state.next
+      ? fetch(this.state.next)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data.next);
+            this.setState(prevState => ({
+              character: this.state.character.concat(data.results),
+              next: data.next,
+              loading: false
+            }));
+            //fetchNow("https://swapi.co/api/people/");
+          })
+      : console.log("Next is leer");
+  }
+
   render() {
-    console.log(this.state.character.films);
+    this.state.loading
+      ? console.log("Lädt")
+      : console.log("State", this.state.next);
     const text = this.state.loading ? (
       <Ripple width={32} height={32} />
     ) : (
@@ -39,10 +75,17 @@ class App extends Component {
       ))
     );
 
-    // console.log(this.state.character);
+    //console.log("Character:", this.state.character);
 
-    console.log(text);
-    return <content className="container">{text}</content>;
+    return (
+      <div>
+        <header className="header">
+          <i className="fas fa-jedi icon" />
+          <h1>My StarWarsApi-Playground</h1>
+        </header>
+        <content className="container">{text}</content>
+      </div>
+    );
   }
 }
 export default App;
