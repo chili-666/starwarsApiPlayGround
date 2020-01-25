@@ -75,7 +75,7 @@ body {
   background-repeat: no-repeat;
   background-size: 25% auto;
   background-position: 60% 60%;
-  perspective: 1px;
+
 }
 
 .character {
@@ -112,4 +112,18 @@ body {
   font-size: x-small;
   text-align: justify;
   color: #d3d3d3;
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .character {
+    flex-basis: 100;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
