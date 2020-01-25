@@ -1,0 +1,9 @@
+@media only and screen (max-width: 600px) {
+  .character {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-basis: 100;
+    background-color: lime;
+  }
+}

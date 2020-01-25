@@ -12,7 +12,8 @@ class Films extends React.Component {
       loading: true,
       show: false,
       id: {},
-      hover: false
+      hover: false,
+      clicked: false
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleHover = this.handleHover.bind(this);
@@ -41,7 +42,8 @@ class Films extends React.Component {
   handleClick() {
     this.setState(prevState => {
       return {
-        show: !prevState.show
+        show: !prevState.show,
+        click: true
       };
     });
   }
@@ -55,7 +57,9 @@ class Films extends React.Component {
   }
 
   render() {
-    let hoverStyle = this.state.hover ? { color: "red" } : null;
+    let hoverStyle;
+    this.state.hover ? (hoverStyle = { color: "red" }) : null;
+
     let crawl = this.state.show ? (
       <p className="crawl">{this.state.crawl}</p>
     ) : null;
@@ -66,8 +70,10 @@ class Films extends React.Component {
         onMouseEnter={this.handleHover}
         onMouseLeave={this.handleHover}
       >
-        <p onClick={this.handleClick}>{this.state.title}</p>
-        {crawl}
+        <span onClick={this.handleClick}>
+          {this.state.title}
+          {crawl}
+        </span>
       </li>
     );
   }
